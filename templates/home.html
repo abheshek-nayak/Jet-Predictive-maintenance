@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+   <link rel='stylesheet' href="{{url_for('static',path='/styles.css')}}"type ="text/css">
+<head>
+    <meta charset="UTF-8">
+    <title>rul-turbine</title>
+</head>
+
+<h1 class="center">&nbsp; REMAINING USEFUL LIFE OF TURBOJETS </h1>
+<body>
+   <img src="http://www.12charlie.com/FAA-H-8083-3AImages/figure14-1.jpg" alt="Face" width="450" height="250" class="center">
+     
+    <h2></h2>
+         <form method="post" action="/fd1"  enctype="multipart/form-data">
+         <label for="csvFile" class="center">Choose a CSV file</label><br>
+         <input type="file" id="csvFile" name="file" onchange="enableSubmitBtn();" class="center"><br><br>
+         <input type="submit" id="submitBtn" value="submit" disabled class="center">
+      </form>
+      <script>
+         function enableSubmitBtn() {
+            document.getElementById('submitBtn').removeAttribute("disabled");
+         }
+      </script>
+      <h3 class="center">PREDICTIONS</h3>
+      <h5 class="center">{{ data|safe }}</h5>
+      
+</body>
+</html>
